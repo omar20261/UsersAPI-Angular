@@ -4,22 +4,22 @@
   <div class="left-img">
     <img src="assets/images/rectangle-copy@2x.jpg" alt="">
   </div>
-  <div class="form-right">
+  <form class="form-right" (submit)="Login($event)">
     <h1>Welcome back!</h1>
     <p>Please login to access your <span>Spaces</span> Dashboard</p>
     <div class="form-group">
       <label for="">Username</label>
-      <input type="text" name="" class="form-control" placeholder="Username">
+      <input type="text" name="" class="form-control" placeholder="Username" [(ngModel)]="userInfo.username" name="username" >
     </div>
     <div class="form-group">
       <label for="">Password</label>
-      <input type="text" name="" class="form-control" value="" placeholder="Password">
+      <input type="password" name="" class="form-control" value="" placeholder="Password" [(ngModel)]="userInfo.password" name="password" >
     </div>
     <div class="">
       <a class="Forgot-password" >Forgot password?</a>
-      <button type="button" name="button" class="btn btn-primary login-btn">LOGIN</button>
+      <button type="submit" name="button" class="btn btn-primary login-btn" >LOGIN</button>
     </div>
-  </div>
+  </form>
   </form>
 
 </div>
