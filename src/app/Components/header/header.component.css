@@ -1,0 +1,29 @@
+.header{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.logo{
+  height: 60px;
+}
+.logo img{
+  height: 100%;
+}
+
+li{
+  padding: 1px 15px;
+}
+.active{
+  border-radius: 100px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: #8e44ad;
+}
+
+a {
+    font-size: 15px;
+    font-weight: bold;
+    color: #34495e !important;
+    text-align: center;
+  }
+
+.active a{  color: #fff !important;}

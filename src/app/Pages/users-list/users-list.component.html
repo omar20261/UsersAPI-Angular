@@ -1,3 +1,75 @@
-<h1>
-  users-list Page
-</h1>
+<app-header ></app-header>
+
+ <div class="PageHeader">
+   <div class="container">
+     <div class="pagePath">
+       <span class="pathName">Home</span>
+       <span class="">/</span>
+       <span class="pathName">Dashboard</span>
+     </div>
+
+     <div class="pageName">
+       <h1>Users List</h1>
+       <button type="button" name="button" class="btn btn-primary"><span class="btn-icon">+</span> New User</button>
+     </div>
+
+   </div>
+ </div>
+
+ <div class="container mt-5">
+   <div class="form ">
+       <table class="table" >
+         <thead>
+           <tr>
+             <td class="col-title noborder">User</td>
+             <td class="col-title noborder">Actions</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let item of items">
+             <td>
+               <div class="Oval">
+                 <img src="assets/images/icons-8-user.svg" alt="">
+               </div>
+               <div class="user-name">
+                 <p>Mónica Ribeiro</p>
+               </div>
+             </td>
+             <td class="actions">
+               <img src="assets/images/icons-8-edit.svg" alt="" class="icon">
+               <img src="assets/images/icons-8-delete.svg" alt="" class="icon">
+               <img src="assets/images/icons-8-right-4.svg" alt="" class="icon2">
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+      <div class="more-info">
+        <img src="assets/images/icons-8-delete-sign.svg" alt="" class="close-btn">
+        <div class="more-info-form">
+          <div class="Oval">
+            <img src="assets/images/icons-8-user.svg" alt="">
+          </div>
+          <p class="user-name">Users List</p>
+          <div class="more-info-btns">
+            <button type="button" name="button" class="btn btn-primary">
+              <img src="assets/images/icons-8-edit-copy-3.svg" alt="">
+               Edit
+             </button>
+            <button type="button" name="button" class="btn btn-primary white-btn">
+              <img src="assets/images/icons-8-delete.svg" alt="">
+              Delete
+            </button>
+          </div>
+
+        </div>
+     </div>
+
+  </div>
+  <div style="text-align: center;">
+    <img src="assets/images/icons-8-spinner-frame-1.svg" alt="">
+    <p class="load-more">Loading more users</p>
+  </div>
+</div>
+
+<app-delete-user-pop-up></app-delete-user-pop-up>

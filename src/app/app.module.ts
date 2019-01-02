@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { AddUserPopUpComponent } from './Components/add-user-pop-up/add-user-pop-up.component';
+import { DeleteUserPopUpComponent } from './Components/delete-user-pop-up/delete-user-pop-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UsersListComponent
+    UsersListComponent,
+    HeaderComponent,
+    AddUserPopUpComponent,
+    DeleteUserPopUpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
-<div class="lds-ripple" *ngIf="!Gv.G_Running">
+<div class="lds-ripple" *ngIf="GV.G_Running">
   <svg class="spinner centerItem" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
   </svg>
   <!-- ===== progress bar ======  -->
-  <div *ngIf="Gv.uploading" class="progress_container" >Uploading .. <b>% {{Gv.uploaded}}</b>
-      <div class="progress_bar"><div [ngStyle]="{'width':Gv.uploaded+'%'}"></div></div>
+  <div *ngIf="GV.uploading" class="progress_container" >Uploading .. <b>% {{GV.uploaded}}</b>
+      <div class="progress_bar"><div [ngStyle]="{'width':GV.uploaded+'%'}"></div></div>
   </div>
   <!-- =======================  -->
 </div>

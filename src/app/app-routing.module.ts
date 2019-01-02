@@ -4,8 +4,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
 
 const routes : Routes = [
-  {path:'',component:LoginComponent},
-  {path:'UsersList',component:UsersListComponent},
+  {path:'login',component:LoginComponent},
+  {path:'',component:UsersListComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
