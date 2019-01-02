@@ -3,14 +3,14 @@
 
     <div class="mt-5" style="padding:0 20px;text-align: center;">
       <p class="msg">Are you sure you want to delete</p>
-      <p class="user-name">Elwin Sharvill</p>
+      <p class="user-name">{{item?.name}}</p>
     </div>
 
     <div class="btns">
-      <button type="button" name="button" class="btn btn-primary white-btn">
+      <button type="button" name="button" class="btn btn-primary white-btn" (click)="item={};Close.emit()">
          No
        </button>
-      <button type="button" name="button" class="btn btn-primary">
+      <button type="button" name="button" class="btn btn-primary" (click)="delete(item?._id)">
         Yes
       </button>
     </div>

@@ -11,6 +11,7 @@ import { UsersListComponent } from './Pages/users-list/users-list.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { AddUserPopUpComponent } from './Components/add-user-pop-up/add-user-pop-up.component';
 import { DeleteUserPopUpComponent } from './Components/delete-user-pop-up/delete-user-pop-up.component';
+import { NotFoundPageComponent } from './Pages/not-found-page/not-found-page.component';
 
 export function tokenGetterFun(){return localStorage.getItem('token')}
 
@@ -21,7 +22,8 @@ export function tokenGetterFun(){return localStorage.getItem('token')}
     UsersListComponent,
     HeaderComponent,
     AddUserPopUpComponent,
-    DeleteUserPopUpComponent
+    DeleteUserPopUpComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,

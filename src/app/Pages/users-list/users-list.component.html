@@ -10,53 +10,58 @@
 
      <div class="pageName">
        <h1>Users List</h1>
-       <button type="button" name="button" class="btn btn-primary"><span class="btn-icon">+</span> New User</button>
+       <button type="button" name="button" class="btn btn-primary" (click)="selectedItem={};AddUserPopup=true"><span class="btn-icon">+</span> New User</button>
      </div>
 
    </div>
  </div>
 
- <div class="container mt-5">
+ <div class="container mt-5 pb-5">
    <div class="form ">
+     <div class="users-list">
        <table class="table" >
          <thead>
            <tr>
              <td class="col-title noborder">User</td>
-             <td class="col-title noborder">Actions</td>
+             <td class="col-title noborder" style="width: 150px;">Actions</td>
            </tr>
          </thead>
          <tbody>
-           <tr *ngFor="let item of items">
+           <tr *ngFor="let item of items" >
              <td>
                <div class="Oval">
                  <img src="assets/images/icons-8-user.svg" alt="">
                </div>
                <div class="user-name">
-                 <p>Mónica Ribeiro</p>
+                 <p>{{item.name}}</p>
                </div>
              </td>
              <td class="actions">
-               <img src="assets/images/icons-8-edit.svg" alt="" class="icon">
-               <img src="assets/images/icons-8-delete.svg" alt="" class="icon">
-               <img src="assets/images/icons-8-right-4.svg" alt="" class="icon2">
+               <img src="assets/images/icons-8-edit.svg" alt="" class="icon" (click)="Object.assign(selectedItem, item);AddUserPopup=true">
+               <img src="assets/images/icons-8-delete.svg" alt="" class="icon" (click)="Object.assign(selectedItem, item);DeleteUserPopup=true">
+               <img src="assets/images/icons-8-right-4.svg" alt="" class="icon2" (click)="Object.assign(selectedItem, item);MoreInfo=true">
              </td>
            </tr>
          </tbody>
        </table>
+       <p *ngIf="items.length == 0 && !API.GV.G_Running" class="No-Items-Found">No Items Found</p>
+     </div>
 
-      <div class="more-info">
-        <img src="assets/images/icons-8-delete-sign.svg" alt="" class="close-btn">
+
+      <div class="more-info" *ngIf="MoreInfo">
+        <img src="assets/images/icons-8-delete-sign.svg" alt="" class="close-btn" (click)="selectedItem={};MoreInfo=false">
         <div class="more-info-form">
           <div class="Oval">
             <img src="assets/images/icons-8-user.svg" alt="">
           </div>
-          <p class="user-name">Users List</p>
+          <p class="user-name">{{selectedItem?.name}}</p>
+          <p class="user-jobTitle">{{selectedItem?.jobTitle}}</p>
           <div class="more-info-btns">
-            <button type="button" name="button" class="btn btn-primary">
+            <button type="button" name="button" class="btn btn-primary" (click)="AddUserPopup=true">
               <img src="assets/images/icons-8-edit-copy-3.svg" alt="">
                Edit
              </button>
-            <button type="button" name="button" class="btn btn-primary white-btn">
+            <button type="button" name="button" class="btn btn-primary white-btn" (click)="DeleteUserPopup=true">
               <img src="assets/images/icons-8-delete.svg" alt="">
               Delete
             </button>
@@ -67,7 +72,10 @@
 
   </div>
   <div style="text-align: center;">
-    <img src="assets/images/icons-8-spinner-frame-1.svg" alt="">
-    <p class="load-more">Loading more users</p>
+    <img src="assets/images/icons-8-spinner-frame-1.svg" *ngIf="LoadingMoreIcon">
+    <a class="load-more" *ngIf="items.length < items_count" (click)="get(PageNumber,false)" >Loading more users</a>
   </div>
 </div>
+
+<app-add-user-pop-up *ngIf="AddUserPopup" [item]="selectedItem" (Close)="AddUserPopup=false"  (Added)="AddedItem($event)" (Updated)="UpdatedItem($event)"></app-add-user-pop-up>
+<app-delete-user-pop-up *ngIf="DeleteUserPopup" [item]="selectedItem" (Close)="DeleteUserPopup=false" (Deleted)="DeletedItem($event)" ></app-delete-user-pop-up>

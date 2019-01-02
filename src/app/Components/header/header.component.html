@@ -16,9 +16,15 @@
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" [routerLink]='["/CONTACT"]'>CONTACT</a>
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+
+        <li *ngIf="!AuthS.loggedIn()"class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" [routerLink]='["/login"]'>LOGIN</a>
         </li>
+
+        <li *ngIf="AuthS.loggedIn()" class="nav-item active" (click)="AuthS.logout()">
+          <a class="nav-link" style="cursor:pointer;">LOGOUT</a>
+        </li>
+
       </ul>
 
     </div>
