@@ -30,16 +30,16 @@
            <tr *ngFor="let item of items" >
              <td>
                <div class="Oval">
-                 <img src="assets/images/icons-8-user.svg" alt="">
+                 <img [src]="ImgPath(item.Image,'assets/images/icons-8-user.svg')" alt="" [ngClass]="{'p-3':!item.Image}" style="height: 100%;width: 100%;">
                </div>
                <div class="user-name">
                  <p>{{item.name}}</p>
                </div>
              </td>
              <td class="actions">
-               <img src="assets/images/icons-8-edit.svg" alt="" class="icon" (click)="Object.assign(selectedItem, item);AddUserPopup=true">
-               <img src="assets/images/icons-8-delete.svg" alt="" class="icon" (click)="Object.assign(selectedItem, item);DeleteUserPopup=true">
-               <img src="assets/images/icons-8-right-4.svg" alt="" class="icon2" (click)="Object.assign(selectedItem, item);MoreInfo=true">
+               <img src="assets/images/icons-8-edit.svg" alt="" class="icon" (click)="selectedItem={};Object.assign(selectedItem, item);AddUserPopup=true">
+               <img src="assets/images/icons-8-delete.svg" alt="" class="icon" (click)="selectedItem={};Object.assign(selectedItem, item);DeleteUserPopup=true">
+               <img src="assets/images/icons-8-right-4.svg" alt="" class="icon2" (click)="selectedItem={};Object.assign(selectedItem, item);MoreInfo=true">
              </td>
            </tr>
          </tbody>
@@ -52,7 +52,7 @@
         <img src="assets/images/icons-8-delete-sign.svg" alt="" class="close-btn" (click)="selectedItem={};MoreInfo=false">
         <div class="more-info-form">
           <div class="Oval">
-            <img src="assets/images/icons-8-user.svg" alt="">
+            <img [src]="ImgPath(selectedItem.Image,'assets/images/icons-8-user.svg')"  [ngClass]="{'p-4':!selectedItem.Image}" style="height: 100%;width: 100%;">
           </div>
           <p class="user-name">{{selectedItem?.name}}</p>
           <p class="user-jobTitle">{{selectedItem?.jobTitle}}</p>
@@ -73,7 +73,7 @@
   </div>
   <div style="text-align: center;">
     <img src="assets/images/icons-8-spinner-frame-1.svg" *ngIf="LoadingMoreIcon">
-    <a class="load-more" *ngIf="items.length < items_count" (click)="get(PageNumber,false)" >Loading more users</a>
+    <a class="load-more" *ngIf="items.length < items_count" (click)="get(false,false)" >Loading more users</a>
   </div>
 </div>
 

@@ -12,25 +12,26 @@ export class UsersListComponent implements OnInit {
   DeleteUserPopup:boolean=false;
   MoreInfo:boolean=false;
   items:any=[];
-  items_count:number;
+  items_count:number=0;
   PageNumber:number=1;
   LoadingMoreIcon:boolean=false;
   selectedItem:any={}
   Object:any=Object;
+  Math:any=Math;
   constructor(private API:APIService) {
-    this.get(this.PageNumber,false)
+    this.get(false,false)
   }
 
   ngOnInit() {
 
   }
 
-  get(num,cb){
-    this.API.callFun({url:'/api?num='+num,method:'GET'},(err,d)=>{
+  get(Page,cb){
+    let _Page=(Page?Page:Math.ceil((this.items_count+1)/7))
+    this.API.callFun({url:'/api?Page='+_Page+'&PerPage='+7,method:'GET'},(err,d)=>{
       if(d){
-        this.items= num>1?this.items.concat(d.doc):d.doc;
+        this.items= _Page>1?_.uniqBy(this.items.concat(d.doc), '_id'):d.doc;
         this.items_count=d.count;
-        this.PageNumber++;
       }
       if(cb){cb();}
     });
@@ -41,6 +42,8 @@ export class UsersListComponent implements OnInit {
     this.items_count++;
   }
 
+  ImgPath(img,def){return img?(img.length > 24)?img:this.API.GV.serverURL+'/render/'+img:def;}
+
   UpdatedItem(item){
     let ind = _.findIndex(this.items,{_id:item._id})
     this.items.splice(ind,1,item);
@@ -50,8 +53,8 @@ export class UsersListComponent implements OnInit {
     this.MoreInfo=false;
     let ind = _.findIndex(this.items,{_id:item._id});
     this.items.splice(ind,1);
-    this.items_count--;
+    let page=Math.ceil((this.items_count+1)/7)-1;
+    this.get(page,false);
   }
-
 
 }

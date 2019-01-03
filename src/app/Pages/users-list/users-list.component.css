@@ -29,6 +29,9 @@
   border-radius: 100%;
   float: left;
   display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 .Oval img{ margin: auto;}
 
@@ -111,6 +114,8 @@
       margin: auto;
       float: none;
       margin-top: 50px;
+      align-items: center;
+      justify-content: center;
     }
   .more-info-form .Oval img{height: 40px;}
   .more-info-form .user-name{
@@ -129,3 +134,4 @@
     }
 .white-btn{background-color: #fff;color: #8e44ad;border:1px solid #8e44ad; }
 .No-Items-Found{text-align: center;width: 100%;display: inline-block;}
+.def-img{padding: 15px;}

@@ -16,7 +16,8 @@ export class AuthGuard implements CanActivate {
     }
     else{
       if(LogoutURLs.indexOf(url) >= 0){return true;}
-      else{this.router.navigate(['/login']);return false;}
+      else{swal('Access not allowed ','please login to continue','warning');
+        this.router.navigate(['/login']);return false;}
     }
   }
 }
