@@ -24,7 +24,8 @@ export class APIService {
     let req = new HttpRequest(op.method, (op.root?op.root:this.GV.serverURL)+op.url+op.lang, op.data, {responseType: op.responseType,headers:new HttpHeaders(headers),reportProgress: op.uploading});
     this.http.request(req).pipe(catchError(e => this.HttpErrHandler(e) )).subscribe((data:any)=> {
       if (data.type === HttpEventType.UploadProgress){this.GV.uploaded = Math.round(100 * data.loaded / data.total);}
-      else if(data instanceof HttpResponse){this.GV.uploading=this.GV.G_Running=false;
+      else if(data instanceof HttpResponse){    console.log('=======HttpErrHandler 22=========',data)
+        this.GV.uploading=this.GV.G_Running=false;
         if((data.body && data.body.success) || op.IgnoreSuccess){cb(null,data.body)}
         else{swal('Failed ', data.body.msg?data.body.msg:'', 'error');cb('Error:'+data.body.msg?data.body.msg:'',null)}
       }
@@ -36,6 +37,7 @@ export class APIService {
   * @return = error message
 */
   HttpErrHandler(res: HttpErrorResponse): Observable<any>{let errMsg;
+    console.log('=======HttpErrHandler=========',res)
     if(res.status === 0){
       errMsg='server does not respond ';
     }

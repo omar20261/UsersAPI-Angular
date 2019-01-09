@@ -14,6 +14,8 @@ import { DeleteUserPopUpComponent } from './Components/delete-user-pop-up/delete
 import { NotFoundPageComponent } from './Pages/not-found-page/not-found-page.component';
 import { ImgComponent } from './Components/img/img.component';
 
+import { FakeBackendService } from './Services/FakeBackend/fake-backend.service';
+
 export function tokenGetterFun(){return localStorage.getItem('token')}
 
 @NgModule({
@@ -33,7 +35,7 @@ export function tokenGetterFun(){return localStorage.getItem('token')}
     FormsModule,
     JwtModule.forRoot({config: {tokenGetter:tokenGetterFun}}),
   ],
-  providers: [],
+  providers: [FakeBackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

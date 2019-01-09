@@ -1,6 +1,6 @@
 .image-container{display: inline-block;height: 100%;width: 100%;}
 .imgLabel{width: 100%;}
-.image-Form{height: 100%;width: 100%;height: 100%;display: inline-block;position: relative;border: 1px solid rgba(0, 0, 0,0.1);/*border-radius: 20px 20px 0px 0px;*/}
+.image-Form{height: 100%;width: 100%;height: 100%;display: inline-block;position: relative;/*border-radius: 20px 20px 0px 0px;*/}
 .pre-img{width: 100%;height: 100%;margin: 0;/*border-radius: 20px 20px 0px 0px;*/background-position: 50% 50%;background-size: cover;}
 .def-img{width: 60%;height: 60%;margin: 20%;}
 
