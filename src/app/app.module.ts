@@ -15,6 +15,8 @@ import { NotFoundPageComponent } from './Pages/not-found-page/not-found-page.com
 import { ImgComponent } from './Components/img/img.component';
 
 import { FakeBackendService } from './Services/FakeBackend/fake-backend.service';
+import { AboutComponent } from './Pages/about/about.component';
+import { ContactComponent } from './Pages/contact/contact.component';
 
 export function tokenGetterFun(){return localStorage.getItem('token')}
 
@@ -26,7 +28,7 @@ export function tokenGetterFun(){return localStorage.getItem('token')}
     HeaderComponent,
     AddUserPopUpComponent,
     DeleteUserPopUpComponent,
-    NotFoundPageComponent,ImgComponent
+    NotFoundPageComponent,ImgComponent, AboutComponent, ContactComponent
   ],
   imports: [
     BrowserModule,
