@@ -18,7 +18,7 @@ export class UsersListComponent implements OnInit {
   selectedItem:any={}
   Object:any=Object;
   Math:any=Math;
-  constructor(private API:APIService) {
+  constructor(public API:APIService) {
     this.get(false,false)
   }
 
