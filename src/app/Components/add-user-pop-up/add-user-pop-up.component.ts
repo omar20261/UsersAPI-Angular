@@ -21,7 +21,7 @@ export class AddUserPopUpComponent implements OnInit {
   post(){
     let leftVal= this.API.GV.CheckKeys(this.item,['jobTitle','name']);
     if(leftVal){return swal('Error', 'please fill all fields ..  no '+leftVal+' entered', 'warning');}
-    this.API.callFun({url:'/api',method:'POST',data:this.item,uploading:true},(err,d)=>{
+    this.API.callFun({url:'/Customer',method:'POST',data:this.item,uploading:true},(err,d)=>{
       if(d){
         this.Close.emit()
         this.Added.emit(d.doc)
@@ -33,7 +33,7 @@ export class AddUserPopUpComponent implements OnInit {
   update(){
     let leftVal= this.API.GV.CheckKeys(this.item,['jobTitle','name']);
     if(leftVal){return swal('Error', 'please fill all fields ..  no '+leftVal+' entered', 'error');}
-    this.API.callFun({url:'/api',method:'PUT',data:this.item,uploading:true},(err,d)=>{
+    this.API.callFun({url:'/Customer',method:'PUT',data:this.item,uploading:true},(err,d)=>{
       if(d){
         this.Close.emit()
         this.Updated.emit(d.doc)

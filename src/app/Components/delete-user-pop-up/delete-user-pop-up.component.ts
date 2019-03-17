@@ -18,7 +18,7 @@ export class DeleteUserPopUpComponent implements OnInit {
 
   delete(id){
     if(!id){return swal('Faild','invalid User ID', 'error');;}
-      this.API.callFun({url:'/api?id='+id,method:'DELETE'},(err,d)=>{
+      this.API.callFun({url:'/Customer?id='+id,method:'DELETE'},(err,d)=>{
         if(d){
           this.Close.emit()
           this.Deleted.emit(this.item);

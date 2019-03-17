@@ -41,19 +41,19 @@ export class FakeBackendInterceptor implements HttpInterceptor{
         return this.Login(request.body)
       }
 
-      else if (pathname=='/api' && request.method === 'GET') {
+      else if (pathname=='/CustomersList' && request.method === 'GET') {
         return this.API_GET(request.headers,query)
       }
 
-      else if (pathname=='/api' && request.method === 'POST') {
+      else if (pathname=='/Customer' && request.method === 'POST') {
         return this.API_POST(request.body,request.headers)
       }
 
-      else if (pathname=='/api' && request.method === 'PUT') {
+      else if (pathname=='/Customer' && request.method === 'PUT') {
         return this.API_PUT(request.body,request.headers)
       }
 
-      else if (pathname=='/api' && request.method === 'DELETE') {
+      else if (pathname=='/Customer' && request.method === 'DELETE') {
         return this.API_DELETE(request.headers,query)
       }
 
